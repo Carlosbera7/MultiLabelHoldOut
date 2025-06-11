@@ -52,9 +52,23 @@ O script principal executa as seguintes etapas:
 - [`Execução`](https://musical-space-yodel-9rpvjvw9qr39vw4.github.dev/): O código pode ser executado diretamente no ambiente virtual.
 
 ## Resultados
-Os resultados incluem:
+Resultados Médios por Seed
+Os resultados médios para cada seed de inicialização são apresentados na tabela abaixo:
 
-Exemplo das 5 primeiras linhas das Predições : 
+Seed	F1-Score Médio
+0	0.6697
+1	0.6792
+2	0.6621
+3	0.6840
+4	0.6650
+5	0.6639
+6	0.6651
+7	0.6617
+8	0.6727
+9	0.6621
+
+![media](https://github.com/user-attachments/assets/d5e35965-e59a-44be-87ae-890cb30501f6)
+
 ```
          0         1         2         3         4   ...        23        24        25        26        27
 0  0.822482  0.011491  0.000115  0.003364  0.015925  ...  0.004265  0.000120  0.001934  0.061836  0.005956

@@ -95,15 +95,18 @@ def gerar():
                 zero_division=0,
                 output_dict=True
             )
-            seed_metrics.append(report['accuracy'])  # Acurácia para o rótulo
+            seed_metrics.append(report['macro avg']['f1-score'])  # Acurácia para o rótulo
         results.append(np.mean(seed_metrics))  # Média de acurácia para a seed
 
     # Exibir médias
-    logging.info("\nResultados Médios:")
-    for seed, acc in enumerate(results):
-        logging.info(f"Seed {seed}: Acurácia média = {acc:.4f}")
+    logging.info("\nResultados Médios por Seed:")
+    for seed, f1 in enumerate(results):
+        print(f"Seed {seed}: F1-score médio = {f1:.4f}")
 
-    logging.info(f"Acurácia Geral (Média de todas as seeds): {np.mean(results):.4f}")
+    mean_f1 = np.mean(results)
+    std_f1 = np.std(results)
+    print(f"\nF1-score médio geral: {mean_f1:.4f}")
+    print(f"Desvio padrão do F1-score: {std_f1:.4f}")
 
 if __name__ == "__main__":
     gerar()

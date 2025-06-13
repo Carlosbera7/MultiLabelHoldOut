@@ -33,7 +33,13 @@ O experimento foi implementado em Python 3.6 utilizando as bibliotecas:
 - [`Data/`](https://github.com/Carlosbera7/MultiLabelHoldOut/tree/main/Data): Pasta contendo o conjunto de dados.
 
 ## Divisão
+
+Distribuição das classes no banco
 ![distribuição](https://github.com/user-attachments/assets/aaf08dd0-6d50-442d-97f9-9f40698210f8)
+
+Distribuição em treino e teste
+![image](https://github.com/user-attachments/assets/5a3a419a-565c-4942-b151-32b816343772)
+
 
 
 ## Resultados

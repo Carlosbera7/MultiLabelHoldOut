@@ -1,56 +1,40 @@
-# Experimento: Classificação de Discurso de Ódio em Português XGBoost Multi-Label com Holdout
+# Experimento: Classificação de Discurso de Ódio em Português XGBoost Multi-Label com Holdout 10x
 
-Este repositório contém a implementação do experimento utilizando Xgboost para Multi-Label adapatado de https://gabrielziegler3.medium.com/multiclass-multilabel-classification-with-xgboost-66195e4d9f2d. 
+Este repositório contém a implementação do experimento utilizando Xgboost para Multi-Label adapatado de https://gabrielziegler3.medium.com/multiclass-multilabel-classification-with-xgboost-66195e4d9f2d, aplicando a técnica de holdout 10x. 
 
 ## Descrição do Experimento
 O experimento segue as etapas descritas no artigo:
 
 1. **Carregamento dos Dados**:
-   - O arquivo CSV 2019-05-28_portuguese_hate_speech_hierarchical_classification_reduzido.csv é carregado.
-   - A coluna text é separada como as features (X), e as demais colunas são tratadas como rótulos (y).
+   - O arquivo CSV 2019-05-28_portuguese_hate_speech_hierarchical_classification_reduzido.csv é carregado.   
 
-2. **Pré-processamento dos Rótulos**:
-     - Os rótulos (y) são convertidos para valores numéricos
-     - Valores inválidos ou fora do intervalo [0, 1] são substituídos por 0.
-     - Valores NaN são preenchidos com 0.
-     - Os rótulos são convertidos para inteiros e transformados em uma matriz NumPy.   
-
-3. **Vetorização do Texto**:
-   - O texto (X) é vetorizado usando TF-IDF com um limite de 5000 features.
-   - Stopwords em português são removidas utilizando a biblioteca NLTK.
+2. **Limpeza de Texto:**:
+     - Remove caracteres especiais, converte para minúsculas e exclui stopwords em português.
+     - Mantém apenas os rótulos com pelo menos 10 exemplos positivos.
       
-4. **Divisão dos Dados**:
-   - Os dados são divididos em conjuntos de treino e teste utilizando stratificação hierárquica com a função iterative_train_test_split da biblioteca scikit-multilearn.
-   - A distribuição das classes nos conjuntos de treino e teste é verificada.
+3. **Divisão dos Dados**:
+   - Utiliza iterative_train_test_split para garantir uma divisão balanceada entre os conjuntos de treino e teste.
   
-5. **Treinamento do Modelo**:
-   - Um modelo XGBoost é treinado para cada rótulo (coluna de y).
-   - O modelo utiliza a função de objetivo binary:logistic para classificação binária.
+4. **Treinamento do Modelo**:
+   - Modelos individuais são treinados para cada rótulo usando a estratégia One-vs-Rest.
+   
      
 ## Implementação
 O experimento foi implementado em Python 3.6 utilizando as bibliotecas:
-- pandas
-- NLTK
-- Scikit-learn
-- XGBoost
+- `pandas`
+- `numpy`
+- `scikit-learn`
+- `xgboost`
+- `skmultilearn`
+- `nltk`
+
+## Estrutura do Repositório
+- [`Script/MultiLabelHD.py`](https://github.com/Carlosbera7/MultiLabelHoldOut/blob/main/Script/MultiLabelHD.py): Script principal para executar o experimento.
+- [`Data/`](https://github.com/Carlosbera7/MultiLabelHoldOut/tree/main/Data): Pasta contendo o conjunto de dados.
 
 ## Divisão
 ![distribuição](https://github.com/user-attachments/assets/aaf08dd0-6d50-442d-97f9-9f40698210f8)
 
-
-O script principal executa as seguintes etapas:
-1. Carregamento das partições salvas.
-2. Tokenização e padding das sequências de texto.
-3. Carregamento dos embeddings GloVe.
-4. Construção e treinamento do modelo LSTM.
-5. Extração das representações intermediárias.
-6. Treinamento e avaliação do XGBoost.
-7. Busca de hiperparâmetros com validação cruzada.
-
-## Estrutura do Repositório
-- [`Scripts/ClassificadorHierarquicoValido.py`](https://github.com/Carlosbera7/ClassificadorMultiLabel/blob/main/Script/ClassificadorHierarquicoValido.py): Script principal para executar o experimento.
-- [`Data/`](https://github.com/Carlosbera7/ClassificadorMultiLabel/tree/main/Data): Pasta contendo o conjunto de dados e o Embeddings GloVe pré-treinados (necessário para execução).
-- [`Execução`](https://musical-space-yodel-9rpvjvw9qr39vw4.github.dev/): O código pode ser executado diretamente no ambiente virtual.
 
 ## Resultados
 Resultados Médios por Seed

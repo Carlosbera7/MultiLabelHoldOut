@@ -41,16 +41,16 @@ Resultados Médios por Seed
 Os resultados médios para cada seed de inicialização são apresentados na tabela abaixo:
 
 |Seed|	|F1-Score Médio|
-|0|	|0.6697|
-|1|	|0.6792|
-|2|	|0.6621|
-|3|	|0.6840|
-|4|	|0.6650|
-|5|	|0.6639|
-|6|	|0.6651|
-|7|   |0.6617|
-|8|	|0.6727|
-|9|	|0.6621|
+|0|	   |0.6697|
+|1|	   |0.6792|
+|2|	   |0.6621|
+|3|	   |0.6840|
+|4|	   |0.6650|
+|5|	   |0.6639|
+|6|	   |0.6651|
+|7|      |0.6617|
+|8|	   |0.6727|
+|9|	   |0.6621|
 
 
 ![media](https://github.com/user-attachments/assets/d5e35965-e59a-44be-87ae-890cb30501f6)
